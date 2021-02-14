@@ -6,6 +6,7 @@
   --light-grey: hsl(0, 0%, 71%);
   --dark-grey: hsl(0, 2%, 28%);
   --red: hsla(1, 77%, 55%, 1);
+
   /* shadow colors */
 
   /* material shadow */
@@ -40,6 +41,7 @@
   }
 }
 
+
 /* Site Elements Basic Settings */
 
 .content-wrapper {
@@ -68,10 +70,9 @@
 @supports (display:grid) {
   .nav-wrapper {
     padding: 20px;
-
+    max-width: 100%;
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 512px, 1fr, 1fr;
+    grid-template-columns: minmax(86px, 128px) 2fr repeat(2, minmax(48, 70px));
     align-items: center;
   }
 }
@@ -98,6 +99,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
   /*grid layout*/
   z-index: 10;
   grid-column: 3 / 4;
@@ -130,8 +132,9 @@
   transform: scale(1);
   transition: var(--shadow-transition);
   /* nav position */
-  justify-self: start;
-  grid-column: 3;
+  align-self: start;
+  justify-self: end;
+  grid-column: 3 / 4;
   grid-row: 1;
 }
 #nav-btn-mobile:hover, #nav-btn-mobile:active {
@@ -140,8 +143,9 @@
 .mobile-shop {
   /* reduce for mobile button */
   /* nav position*/
+  align-self: start;
   justify-self: end;
-  grid-column: 3;
+  grid-column: 4;
   grid-row: 1;
 }
 .mobile-shop > button {
@@ -149,7 +153,7 @@
   box-shadow: var(--inactive-shadow);
   transition: var(--shadow-transition);
 
-  border-radius: 25px;
+  border-radius: 15px;
   border: 0;
   cursor: pointer;
   width: 48px;
@@ -161,9 +165,7 @@
   box-shadow: var(--hover-shadow);
 }
 /* nav home text icon */
-.text-logo {
-  max-width: 128px;
-}
+
 /* hero layout */
 /* hero logo */
 .hero-icon {
@@ -179,3 +181,65 @@
 /* Icons */
 /* ----- */
 
+/* -------------- */
+/* Desktop Layout */
+/* Keept his below mobile declarations */
+/* -------------- */
+@media screen and (min-width: 600px) {
+  /* Desktop Navigation */
+  .nav-wrapper {
+    grid-gap: 10px;
+  }
+  .desktop-links {
+    display: flex;
+    flex-direction: row;
+
+    margin: 0 0 0 3rem;
+  }
+  .desktop-links > a {
+    margin: 0rem 1rem;
+
+    transform: scale(1);
+    transition: var(--shadow-transition);
+  }
+  .desktop-links > a:hover {
+    transform: scale(1.2);
+    color: var(--red);
+  }
+  .desktop-shop {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    grid-column: 3 / 5;
+
+  }
+  .desktop-shop > * {
+    margin: 0 10px;
+  }
+  .desktop-shop > :nth-child(1) {
+  transform: scale(1);
+  transition: var(--shadow-transition);
+  justify-self: end;
+  }
+  .desktop-shop > :nth-child(1):hover {
+    transform: scale(1.2);
+  }
+  .desktop-shop button {
+    min-width: 10px;
+    cursor: pointer;
+  box-shadow: var(--inactive-shadow);
+  transition: var(--shadow-transition);
+
+    max-height: 2.5rem;
+    border-radius: 10px;
+    border: none;
+  }
+  .desktop-shop button:hover, desktop-shop button:active {
+    box-shadow: var(--hover-shadow);
+    background-color: var(--red);
+  }
+  .mobile-menu, .mobile-shop, #nav-btn-mobile {
+    display: none;
+  }
+}
