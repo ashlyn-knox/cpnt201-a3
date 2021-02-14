@@ -19,7 +19,7 @@ p {
 a {
   color: var(--black);
   line-height: 2;
-  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
 }
 .desktop-login {
   font-size: clamp(0.8rem, 3vw, 1rem);
