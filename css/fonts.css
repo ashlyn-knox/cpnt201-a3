@@ -63,7 +63,5 @@ a {
 .hero-tile-icon {
   max-width: 256px;
 }
-.test {
-  color: var(--red);
-  background-color: var(--red);
+.mountain {
 }
